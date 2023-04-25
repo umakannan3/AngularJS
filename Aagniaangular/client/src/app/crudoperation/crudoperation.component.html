@@ -1,0 +1,71 @@
+<div class="container mt-4" >
+  <div class="card">
+          <h1>Customer Registation</h1>
+  
+  <form>
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="Enter Name">
+      </div>
+  
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="form-control" id="address" placeholder="Enter Address">
+      </div>
+
+      <div class="form-group">
+          <label>Pincode</label>
+          <input type="number" [(ngModel)]="pincode" [ngModelOptions]="{standalone: true}" class="form-control" id="pincode" placeholder="Enter Pincode">
+        </div>
+
+        <div class="form-group">
+          <label>city</label>
+          <input type="text" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" class="form-control" id="city" placeholder="Enter City">
+        </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <input type="text" [(ngModel)]="country" [ngModelOptions]="{standalone: true}" class="form-control" id="country" placeholder="Enter Country">
+        </div>
+
+
+  
+      <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+    
+    </form>
+  </div>
+<div class="container mt-4" >
+            
+    <table class="table">
+        <thead>
+         <h1 *ngIf="!isResultLoaded">customerdetails</h1>      
+        <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Address</th>  
+            <th scope="col">Pincode</th>  
+            <th scope="col">city</th>  
+            <th scope="col">Country</th>  
+            <th scope="col">Action</th>  
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customerdetails of Customer">
+            <td>{{customerdetails.sno  }}</td>
+            <td>{{customerdetails.name }}</td>
+            <td>{{customerdetails.address }}</td>
+            <td>{{customerdetails.pincode }}</td>
+            <td>{{customerdetails.city }}</td>
+            <td>{{customerdetails.country }}</td>
+            <td><button (click)="setDelete(customerdetails)">delete</button>
+                <button (click)="setUpdate(customerdetails)">Edit</button></td>
+
+            
+              <!-- <button type="button" class="btn btn-success" (click)="setUpdate(customerdetails.sno)">Edit</button>
+              <button type="button" class="btn btn-danger" (click)="setDelete(customerdetails.sno)">Delete</button>             -->
+            
+          </tr>          
+        </tbody>
+      </table>
+    </div>
+
